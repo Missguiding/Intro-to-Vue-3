@@ -14,11 +14,20 @@
       
       <div class="product-display">
         <div class="product-container">
+
           <div class="product-image">
             <!-- image goes here -->
+             <img v-bind:src="image">  <!-- gebruik v-bind directive/ daarmee creeër je een bond met wat is in attribute en data zelf -->
+              <!-- v-bind:(: = verbinding tussen attribute en expression) Dynamically bind an attribute(src) to an expression("image") -->
+              <!-- voor "image" kun je ook {{ image }} gebruiken zoals bij product -->
+                                     <!--  v-bind SHORTHAND = :-->
+                                        <!--example/ img :src="image" -->                                  
+
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
+            <!-- Code Challenge L3 -->
+            <a :href="url">Made by Missguiding</a>           
           </div>
         </div>
       </div>
