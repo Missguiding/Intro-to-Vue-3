@@ -19,6 +19,19 @@
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
+
+            <!-- v-if directive -->
+            <p v-if="inStock"> In Stock</p><!--niet verplicht te combineren met 'v-else' -->
+            <p v-else> Out of Stock</p> 
+            <p v-show = 'inStock'> In Stock</p> <!-- andere manier van inStock al dan niet te tonen (bij out of stock wordt het gewoon onzichtbaar gemaakt)-->
+           
+            <!-- creating chained conditional logic -->
+            <p v-if="inventory > 10">In Stock</p> 
+            <p v-else-if="inventory <= 10 && inventory > 0">Almoust sold out!</p>
+            <p v-else>Out of Stock</p>
+
+            <!-- Code challenge L4 -->
+             <p v-if="onSale">On Sale</p>
           </div>
         </div>
       </div>
