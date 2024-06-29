@@ -6,7 +6,7 @@
     <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
     <div id="app">
@@ -21,6 +21,14 @@
             <h1>{{ product }}</h1>
             <p v-if="inStock">In Stock</p>
             <p v-else>Out of Stock</p>
+            
+            <ul><!-- gebruik ul (Unorderd List) om lijst te creeëren -->
+            <!-- gebruik li om lijst te tonen --> <!-- v-for om door de lijst van details(zie main lijst) te loopen -->            
+              <li v-for="detail in details">  {{ detail }} </li> <!-- we voegen een expression toe om ieder detail te kunnen tonen (refereert naar detail in details loop) -->
+               </ul>
+               <!-- om voor ieder product (zie data main) kleur te drukken (variant:color) voegen we eerst een <div> toe -->
+               <!-- :key geeft ieder DOM element een unieke sleutel -->  
+            <div v-for="variant in variants" :key = "variants.id">{{variants.color}}</div>
           </div>
         </div>
       </div>
