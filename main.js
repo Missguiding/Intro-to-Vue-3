@@ -18,6 +18,11 @@ const app = Vue.createApp({
         },
         updateImage(variantImage){ // parameter variant.image - zie index parameter variant.image
             this.image = variantImage // in de methode zeggen we deze imaga is gelijk aan de doorgegeven (parameter) image
+        },
+        // Code Challenge L6
+        decremendingCart(){
+            if (this.cart >=1){ // als cart 1 of meer value heeft (zo kan je niet onder 0 gaan)
+            this.cart -=1} // verminderd waarde met 1 
         }
     }
 })

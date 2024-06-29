@@ -27,18 +27,19 @@
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
              <!--update image when variant color is hovered on-->
+             <!--SHORTHAND voor de v-on : @...-->    
             <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)" >{{ variant.color }}</div>
+
              <!-- button: Listen for click-EVENTS on an element -->
                <!-- gebruik vue directive: v-on:click(event waar we naar luisteren) "cart +=1 is de expression dat we triggeren"-->
             <!--<button class="button" v-on:click="cart +=1">Add to Cart</button>--> 
 
             <!--voor de logica(cart +=1) maken we beter een method in de main-->
-            <!--SHORTHAND voor de v-on : @-->            
+            <!--SHORTHAND voor de v-on : @...-->            
             <button class="button" @click="addToCart">Add to Cart</button>
 
-
-
-
+            <!--Code challenge L6 - extra button decremending value of cart-->    
+            <button class="button" @click="decremendingCart">Remove item</button>
           </div>
         </div>
       </div>
