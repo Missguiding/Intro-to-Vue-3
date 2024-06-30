@@ -31,8 +31,22 @@
               v-for="variant in variants" 
               :key="variant.id" 
               @mouseover="updateImage(variant.image)" 
-            >{{ variant.color }}</div>
-            <button class="button" @click="addToCart">Add to Cart</button>
+              
+            class="color-circle" 
+            :style="{backgroundColor: variant.color}"> 
+            <!-- color-circle class  werd aangemaakt in styles.css-->
+            <!-- toon het variant kleur zelf - creeër extra class -->
+            <!-- maak shorthand :style attribute en voeg een style object toe {} achtergrondkleur(CSS property) gelijk zetten aan variant.color -->
+             <!-- tussen {} staat een style object en maarkt gebruik van javascript dus moet je camelCased propery name gebruiken -->
+            </div>
+            <!-- button disable maken wanneer de inStock = false -->
+              <!-- gebruik shorthand disabled en als het niet(!) inStock is maak de knop onbruikbaar -->
+                <!--gebruik class-binding om de knop ook nog eens onbruikbaar eruit te doen zien -->
+                <!--disabledButton class werd aangemaakt in styles.css -->
+            <button class="button" 
+            :class="{disabledButton: !inStock}"
+            :disabled="!inStock"
+            @click="addToCart">Add to Cart</button>
           </div>
         </div>
       </div>
