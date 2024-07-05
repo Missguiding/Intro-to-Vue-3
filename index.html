@@ -19,19 +19,27 @@
           <div class="product-image">
             <img v-bind:src="image">
           </div>
+           <!--brand+product vervangen we door title, dit wordt de naam van onze nieuwe computed property -->
           <div class="product-info">
-            <h1>{{ product }}</h1>
+             <!--<h1>{{ brand + " " +product }}</h1>-->
+             <h1>{{title}}</h1>
+          <!--Code Challenge L8-->
+          <p>{{sale}}</p>
+
             <p v-if="inStock">In Stock</p>
             <p v-else>Out of Stock</p>
             <ul>
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
-
+            <!-- update image &inStock using computed properties -->
+             <!-- @mouseover: nieuwe methode updateVariant en het zal de index binnen trekken -->
+              <!-- om toegang te krijgen tot 'index' geven we het mee als tweede parameter in de v-for -->
+               <!-- inStock is nu een computed property geen data property meer -->
             <div 
               class="color-circle" 
-              v-for="variant in variants" 
+              v-for="(variant, index) in variants" 
               :key="variant.id" 
-              @mouseover="updateImage(variant.image)" 
+              @mouseover="updateVariant(index)" 
               :style="{ backgroundColor: variant.color }"></div>
             <button class="button" :class="{ disabledButton: !inStock }" :disabled="!inStock" v-on:click="addToCart">Add to Cart</button>
           </div>
