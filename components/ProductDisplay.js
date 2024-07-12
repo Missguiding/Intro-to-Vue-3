@@ -31,7 +31,7 @@ app.component('product-display', {
           class="color-circle" 
           :style="{ backgroundColor: variant.color }">
         </div>
-                
+
         <button 
           class="button" 
           :class="{ disabledButton: !inStock }" 
@@ -39,6 +39,15 @@ app.component('product-display', {
           v-on:click="addToCart">
           Add to Cart
         </button>
+      <!--Code challenge L10-->
+        <button 
+        class="button" 
+        :class="{ disabledButton: !inStock }" 
+        :disabled="!inStock" 
+        @click="removeFromCart">
+        Remove item
+      </button>
+
       </div>
     </div>
   </div>`,
@@ -60,6 +69,10 @@ app.component('product-display', {
       },
       updateVariant(index) {
           this.selectedVariant = index
+      },
+      //code challenge 
+      removeFromCart(){
+        this.$emit('remove-from-cart', this.variants[this.selectedVariant].id)
       }
   },
   computed: {

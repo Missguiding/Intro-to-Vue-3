@@ -13,8 +13,12 @@
       <div class="nav-bar"></div>
 
       <div class="cart">Cart({{ cart.length }})</div>
-      <product-display :premium="premium" @add-to-cart="updateCart"></product-display> <!--Hier luisteren we naar het gemaakt event in de ProductDisplay method'addToCart'-->
-    <!--In die method hebben we een event gemaakt en parameter ('add-to-cart') meegeven en die triggert "updateCart" methode in de main wat 1 zal toevoegen-->
+      <product-display 
+      :premium="premium" 
+      @add-to-cart="updateCart"
+      @remove-from-cart="removeById"> <!-- code challenge -->
+      <!--Hier luisteren we naar het gemaakt event in de ProductDisplay method removeFromCart(), parameter 'remove-from-cart', trigger methode in de main-->
+    </product-display>    
     </div>
 
     <!-- Import App -->
