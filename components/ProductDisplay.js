@@ -31,7 +31,7 @@ app.component('product-display', {
           class="color-circle" 
           :style="{ backgroundColor: variant.color }">
         </div>
-        
+                
         <button 
           class="button" 
           :class="{ disabledButton: !inStock }" 
@@ -56,7 +56,7 @@ app.component('product-display', {
   },
   methods: {
       addToCart() {
-          this.cart += 1
+          this.$emit('add-to-cart', this.variants[this.selectedVariant].id) /* event dat wordt getriggerd*/
       },
       updateVariant(index) {
           this.selectedVariant = index
