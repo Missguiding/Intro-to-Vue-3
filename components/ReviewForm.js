@@ -19,6 +19,13 @@ app.component('review-form', {
         <option>2</option>
         <option>1</option>
       </select>    
+
+      <!--code challenge-->
+      <label for="recommended">Would you recommend this product</label>
+      <select id="recommended" v-model="recommended">
+      <option>YES!</option>
+      <option>No!</option>
+      </select>
   
       <input class="button" type="submit" value="Submit">  
   
@@ -29,12 +36,13 @@ app.component('review-form', {
         name: '',
         review: '',
         rating: null,
+        recommended: '' // code challenge
         //na het maken van template en de data kunnen we v-model gebruiken als een 2-way binding tussen onze template en onze data        
       }
     },
     methods: {
       onSubmit() {
-        if (this.name === '' || this.review === '' || this.rating === null) {
+        if (this.name === '' || this.review === '' || this.rating === null || this.recommended ==='') {
           alert('Review is incomplete. Please fill out every field.')
           return
         }       
@@ -42,7 +50,8 @@ app.component('review-form', {
         let productReview = {
           name: this.name,
           review: this.review,
-          rating: this.rating
+          rating: this.rating,
+          recommended: this.recommended
           
         }
         // nu we een productreview hebben we gecreeerd moeten we het doorzenden want het mag niet in het formulier leven maar op het product  
@@ -50,7 +59,8 @@ app.component('review-form', {
         // daarna resetten we alles
         this.name = ''
         this.review = ''
-        this.rating = null         
+        this.rating = null       
+        this.recommended = ''  
       }
     }
   })// daarna kunnen we het component importeren in de index.html

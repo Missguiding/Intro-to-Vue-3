@@ -18,6 +18,8 @@ app.component('review-list',{
         <br/>
         "{{ review.review }}"
         <br/>
+        <!--code challenge-->
+        Recommended: {{review.recommended}}
        
       </li>
     </ul>
